@@ -10,4 +10,5 @@ if __name__ == '__main__':
     if args.username == 'admin' and args.password == 'admin':
         print('Access granted.')
     else:
+        print('Access denied.')
         raise Exception('Access denied.')

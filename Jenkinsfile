@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('Stage 1') {
             steps {
-                sh 'python test_credentials.py'
+				withCredentials([usernamePassword(credentialsId: 'test_credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+               		sh 'python test_credentials.py --password ${PASS} --username ${USER}'
+				}
             }
         }
     }
